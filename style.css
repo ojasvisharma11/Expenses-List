@@ -28,6 +28,11 @@ h1, form{
     color: maroon; 
 }
 
+.clear{
+    margin: 0.5rem;
+    padding: 0.2rem;
+}
+
 .material-submit{
     cursor: pointer;
     transition: all 0.3s ease;
