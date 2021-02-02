@@ -10,9 +10,13 @@ const expenses = document.querySelector('.expenses')
 materialSubmit.addEventListener('click', addExpense);
 expenses.addEventListener('click', editDelExpense);
 
-//F unctions
+//Functions
 function addExpense(event){
     event.preventDefault();
+    if(isValid() == false){
+        console.log("Not Passed!");
+        return;
+    }
     const expenseDiv = document.createElement('div')
     expenseDiv.classList.add("expense")
 
@@ -72,5 +76,69 @@ function editDelExpense(event){
     }
     else if(item.classList.contains("del-btn")){
         expense.remove();
+    }
+}
+
+function isValid(){
+    if(isInputValid() == false)return false;
+    if(isQtyValid() == false)return false;
+    if(isAmtValid() == false)return false;
+    return true;
+}
+function isInputValid(){
+    
+    if(materialInput.value == ""){
+        window.alert("Material can't be empty");
+        return false;
+    }
+    
+    if(materialInput.value.length > 15){
+        window.alert("Material can only have 15 chars");
+        return false;
+    }
+    
+    if(containsNum(materialInput.value) == true){
+        window.alert('Material name should not contain a number');
+        return false;
+    }
+    if(expenses.getElementsByTagName("div").length > 20){
+        window.alert("You can only add upto 20 expenses");
+        return false;
+    }
+    const expensesList = expenses.childNodes;
+    var task_valid = true;
+    expensesList.forEach(function(expense) {
+        if(task_valid == false)return false;
+        if(materialInput.value == expense.getElementsByTagName('li').item(0).innerText){
+            window.alert("Can't store duplicates, Please edit the prevoius entry!");
+            task_valid = false;
+            return false;
+        }
+    });
+    // returning validation
+    return task_valid;
+}
+
+function containsNum(str){
+    for(var index = 0;index<str.length;index++){
+        if(str[index] >= '0' && str[index] <= '9'){
+            return true;
+        }
+        
+    }
+    return false;
+}
+
+function isQtyValid(){
+    if(!(materialQty.value > 0)){
+        window.alert('Quantity should be greater than 0.')
+        return false;
+    }
+}
+
+function isAmtValid(){
+    if(!(materialCst.value > 0)){
+        window.alert('Cost should be greater than 0.')
+        return false;
     }
 }
