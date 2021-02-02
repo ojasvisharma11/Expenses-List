@@ -28,12 +28,12 @@ h1, form{
     color: maroon; 
 }
 
-.clear{
+.material-submit, .clear{
     margin: 0.5rem;
-    padding: 0.2rem;
-}
-
-.material-submit{
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
     background: rgb(0, 128, 64);
@@ -42,7 +42,7 @@ h1, form{
     width:1.5rem;
 }
 
-.material-submit:hover{
+.material-submit:hover, .clear:hover{
     background: white;
     color:  rgb(0, 128, 64);
 }
@@ -69,7 +69,7 @@ h1, form{
     list-style: none;
 }
 
-.fa-edit, .fa-minus-circle{
+.fa-edit, .fa-minus-circle, .fa-minus-circle{
     pointer-events: none;
 }
 .expense{
