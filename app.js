@@ -134,11 +134,16 @@ function isQtyValid(){
         window.alert('Quantity should be greater than 0.')
         return false;
     }
+    if(!(Number.isInteger(materialQty.value) > 0)){
+        window.alert('Quantity should be a positive Integer')
+        return false;
+    }
+    return true;
 }
 
 function isAmtValid(){
     if(!(materialCst.value > 0)){
         window.alert('Cost should be greater than 0.')
         return false;
-    }
+    }return true;
 }
