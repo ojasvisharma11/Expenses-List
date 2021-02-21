@@ -130,7 +130,7 @@ function containsNum(str){
 }
 
 function isQtyValid(){
-    if(!(materialQty.value > 0)){
+    if(!(materialQty.value < 0)){
         window.alert('Quantity should be greater than 0.')
         return false;
     }
