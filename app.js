@@ -134,7 +134,7 @@ function isQtyValid(){
         window.alert('Quantity should be greater than 0.')
         return false;
     }
-    if(!(Number.isInteger(materialQty.value) > 0)){
+    if(!(Number.isInteger(materialQty.value))){
         window.alert('Quantity should be a positive Integer')
         return false;
     }
